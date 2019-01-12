@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "./base/head.html" %}
+</head>
+<body>
+    <main>
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <div class="counted">
+                        <span>{{ no_of_char }}</span>
+                    </div>
+                    <p class="h4 pt-2">Character</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="counted">
+                        <span>{{ no_of_words }}</span>
+                    </div>
+                    <p class="h4 pt-2">Words</p>
+                </div>
+            </div>
+
+            <h1 class="pt-5 pb-3">Words</h1>
+
+            <div id="test-list">
+                    <input type="text" class="fuzzy-search" placeholder="Search" autofocus/>
+                    <ul class="list list-unstyled">
+
+                        {% for k,v in tag_list %}
+                            <li>
+                                <button type="button" class="btn tag_list name">
+                                    {{ k }} <span class="badge badge-light">{{ v }}</span>
+                                </button>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+            </div>
+            
+            <a class="btn btn-primary new-count" href="{% url 'home' %}">Count New</a>
+
+            {% load static %}
+            <script src="{% static 'js/list.min.js' %}"></script>
+
+            <script>
+                var monkeyList = new List('test-list', { 
+                    valueNames: ['name']
+                });
+            </script>
+    </main>
+</body>
+</html>

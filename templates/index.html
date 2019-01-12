@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "./base/head.html" %}
+</head>
+
+<body>
+    <main>
+        
+        {% include "./base/header.html" %}
+        
+            <form action="{% url 'count' %}">
+                <div class="form-group">
+                    <textarea name="fulltext" class="form-control" id="exampleFormControlTextarea1" rows="9" placeholder="Type or paste your text here." required autofocus></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary submit-btn">Count</button>
+            </form>
+    </main>
+</body>
+
+</html>
